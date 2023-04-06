@@ -1,0 +1,20 @@
+<div id="ingredient-menu">
+  <div class="sticky-container">
+    <h1>Cooky</h1>
+    <mat-form-field class="search-field" hideRequiredMarker>
+      <mat-label>Search Ingredients</mat-label>
+      <input matInput type="text"/>
+      <button id="search-button" matSuffix mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div id="categories">
+    <div class="category" *ngFor="let category of categories; let i = index;">
+      <h2>{{categoriesNames[i]}}</h2>
+      <div class="ingredients-container">
+        <a class="ingredients" *ngFor="let ingredient of category">{{ingredient}}</a>
+      </div>
+    </div>
+  </div>
+</div>
