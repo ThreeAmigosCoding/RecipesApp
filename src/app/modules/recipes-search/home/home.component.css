@@ -1,0 +1,9 @@
+#home {
+  display: flex;
+  flex-direction: row;
+}
+
+.filters-and-recipes {
+  width: 75vw;
+  background-color: #F2F4F3;
+}

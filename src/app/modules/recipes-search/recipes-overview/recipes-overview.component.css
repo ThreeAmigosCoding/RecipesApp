@@ -1,0 +1,14 @@
+#cuisine-meal-type {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 20px;
+}
+
+#cuisine-meal-type button {
+  background-color: #FFA012;
+  height: 60%;
+  font-size: 18px;
+  width: 120px;
+  padding: 5px 20px;
+}

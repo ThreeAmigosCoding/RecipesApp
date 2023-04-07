@@ -1,0 +1,121 @@
+#filters {
+  width: 100%;
+  height: 33vh;
+  margin-top: 20px;
+  padding: 0 40px 0 20px;
+  border-bottom: 10px solid #222831;
+  display: flex;
+  flex-direction: row;
+}
+
+#pantry-and-cuisines {
+  width: 60%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 15px;
+}
+
+#filters h1 {
+  color: #303030;
+  font-size: 36px;
+  text-align: left;
+}
+
+#filters-container {
+  width: 40%;
+  padding: 10px;
+}
+
+#filters-container p {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 6px;
+  margin-bottom: 0;
+}
+
+mat-slider {
+  width: 100%;
+  margin: 0;
+}
+
+.filter-slider ::ng-deep .mat-slider-thumb,
+.filter-slider ::ng-deep .mat-slider-track-fill,
+.filter-slider ::ng-deep .mat-slider-thumb-label
+ {
+  background-color: #303030;
+}
+
+.filter-checkbox {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 5px;
+
+}
+
+mat-checkbox ::ng-deep .mat-checkbox-inner-container {
+  width: 24px;height: 24px;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+  background-color: #303030 !important;
+}
+
+::ng-deep mat-checkbox .mat-checkbox-checkmark-path {
+  stroke: white !important;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: #303030;
+}
+
+.ingredients-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 4px;
+  background: #222831;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #FFA012;
+}
+
+.ingredients-container a {
+  text-decoration: none;
+  color: #303030;
+  /*background-color: #F2F4F3;*/
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.ingredients-container a p {
+  margin: 0;
+  color: white;
+}
+
+.ingredients-container a :hover {
+  cursor: grab;
+}
+
+.excluded {
+  background-color: #DE5243;
+}
+
+.included {
+  background-color: #54B572;
+}
+
+
+
+
+
+
+
