@@ -1,6 +1,12 @@
 <div id="filters">
   <div id="pantry-and-cuisines">
     <h1>My Pantry</h1>
+    <div class="ingredients-container">
+      <a class="ingredients d-flex flex-row align-items-center" *ngFor="let ingredient of pantry"
+      [ngClass]="{'excluded': ingredient.excluded, 'included': !ingredient.excluded}" (click)="remove(ingredient)">
+        <p>{{ingredient.name}}</p>
+      </a>
+    </div>
   </div>
   <div id="filters-container">
     <p>Max preparation time in minutes: <span>{{ prepSliderValue }}</span></p>

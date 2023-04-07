@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RecipesSearchService} from "../recipes-search.service";
 
 @Component({
   selector: 'app-filters',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor() { }
+  pantry : Ingredient[] = [{name: "orange", excluded: true}, {name: "meat", excluded: false}];
+
+  constructor(private recipesSearchService: RecipesSearchService) { }
 
   ngOnInit(): void {
+    this.recipesSearchService.$pantryState.subscribe( result => {
+      this.pantry = result;
+    } )
   }
 
   prepSliderValue: number = 120;
@@ -20,5 +26,14 @@ export class FiltersComponent implements OnInit {
   maxValue = 100;
   sliderValue = {min: 20, max: 80};
 
+  remove(ingredient : Ingredient) : void {
+    this.recipesSearchService.removeIngredient(ingredient);
+  }
+
+}
+
+export interface Ingredient {
+  name: string;
+  excluded: boolean;
 }
 

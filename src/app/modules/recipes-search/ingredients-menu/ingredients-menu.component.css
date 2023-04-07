@@ -67,8 +67,9 @@
   text-decoration: none;
   color: #303030;
   background-color: #F2F4F3;
-  padding: 5px 10px;
+  padding: 5px;
   border-radius: 10px;
+  font-size: 20px;
 }
 
 .ingredients-container a:hover {
@@ -85,3 +86,30 @@
   border-radius: 5px;
   background: #FFA012;
 }
+
+.add-exclude mat-icon {
+  font-size: 16px;
+}
+
+.add-exclude {
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+
+.ingredients-container a p {
+  margin: 0;
+}
+
+.selected-ingredient {
+  background-color: #FFA012 !important;
+  color: #303030 !important;
+  padding: 5px 10px !important;
+}
+
+.selected-ingredient-button {
+  display: none;
+}
+
+

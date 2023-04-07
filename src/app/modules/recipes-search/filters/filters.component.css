@@ -10,6 +10,9 @@
 
 #pantry-and-cuisines {
   width: 60%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 15px;
 }
 
 #filters h1 {
@@ -64,6 +67,52 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
   border-color: #303030;
 }
+
+.ingredients-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 4px;
+  background: #222831;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #FFA012;
+}
+
+.ingredients-container a {
+  text-decoration: none;
+  color: #303030;
+  /*background-color: #F2F4F3;*/
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.ingredients-container a p {
+  margin: 0;
+  color: white;
+}
+
+.ingredients-container a :hover {
+  cursor: grab;
+}
+
+.excluded {
+  background-color: #DE5243;
+}
+
+.included {
+  background-color: #54B572;
+}
+
 
 
 

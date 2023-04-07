@@ -13,7 +13,18 @@
     <div class="category" *ngFor="let category of categories; let i = index;">
       <h2>{{categoriesNames[i]}}</h2>
       <div class="ingredients-container">
-        <a class="ingredients" *ngFor="let ingredient of category">{{ingredient}}</a>
+        <a class="ingredients d-flex flex-row align-items-center" *ngFor="let ingredient of category"
+           [ngClass]="{'selected-ingredient': inPantry(ingredient)}">
+          <button class="exclude add-exclude" title="Exclude" (click)="add(ingredient, true)"
+                  [ngClass]="{'selected-ingredient-button': inPantry(ingredient)}">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <p (click)="remove(ingredient)">{{ingredient}}</p>
+          <button class="add add-exclude" title="Add" (click)="add(ingredient, false)"
+                  [ngClass]="{'selected-ingredient-button': inPantry(ingredient)}">
+            <mat-icon>add</mat-icon>
+          </button>
+        </a>
       </div>
     </div>
   </div>

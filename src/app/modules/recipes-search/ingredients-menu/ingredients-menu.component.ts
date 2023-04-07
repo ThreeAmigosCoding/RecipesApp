@@ -2,6 +2,8 @@ import {Component, NgModule, OnInit} from '@angular/core';
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {RecipesSearchService} from "../recipes-search.service";
+import {Ingredient} from "../filters/filters.component";
 
 @Component({
   selector: 'app-ingredients-menu',
@@ -10,9 +12,14 @@ import {MatButtonModule} from "@angular/material/button";
 })
 export class IngredientsMenuComponent implements OnInit {
 
-  constructor() { }
+  pantry : Ingredient[] = []
+
+  constructor(private recipesSearchService : RecipesSearchService) { }
 
   ngOnInit(): void {
+    this.recipesSearchService.$pantryState.subscribe(result => {
+      this.pantry = result;
+    });
   }
 
   @NgModule({
@@ -67,5 +74,25 @@ export class IngredientsMenuComponent implements OnInit {
                      "Bread & Salty Snacks", "Oils & Fats", "Dressings & Vinegars", "Condiments", "Canned Food",
                      "Sauces, Spreads & Dips", "Soups, Stews & Stocks", "Desserts & Sweet Snacks",
                      "Wine, Beer & Spirits", "Beverages", "Supplements & Extracts"];
+
+  add(name : string, exclude: boolean) : void {
+    let ingredient : Ingredient = {name: name, excluded: exclude};
+    this.recipesSearchService.addIngredient(ingredient);
+  }
+
+  inPantry(name: string) : boolean {
+    for (let ingredient of this.pantry)
+      if (ingredient.name == name) return true;
+    return false;
+  }
+
+  remove(name: string) : void {
+    for (let ingredient of this.pantry) {
+      if (ingredient.name == name) {
+        this.recipesSearchService.removeIngredient(ingredient);
+        return;
+      }
+    }
+  }
 
 }
