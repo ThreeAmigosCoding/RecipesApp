@@ -5,10 +5,36 @@
   gap: 20px;
 }
 
-#cuisine-meal-type button {
+.cuisine-meal-button {
   background-color: #FFA012;
   height: 60%;
   font-size: 18px;
   width: 120px;
   padding: 5px 20px;
+  margin-top: 7px;
 }
+
+.search-field {
+  padding: 0 30px;
+  width: 25%;
+  font-size: 18px;
+  margin-left: -15px;
+}
+
+.search-field, .search-field mat-label {
+  color: #FFA012;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #FFA012 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: #FFA012 !important;
+}
+
+#search-button {
+  scale: 150%;
+  margin-bottom: 10px;
+}
+

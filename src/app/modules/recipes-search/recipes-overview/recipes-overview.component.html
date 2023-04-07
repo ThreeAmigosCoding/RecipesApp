@@ -1,7 +1,14 @@
 <div id="recipes-overview">
   <div id="cuisine-meal-type">
-    <button mat-button (click)="chooseCuisine()">Cuisines</button>
-    <button mat-button (click)="chooseMealType()">Meal Type</button>
+    <mat-form-field class="search-field" hideRequiredMarker>
+      <mat-label>Search Meals</mat-label>
+      <input matInput type="text" [(ngModel)]="searchToken"/>
+      <button id="search-button" matSuffix mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <button class="cuisine-meal-button" mat-button (click)="chooseCuisine()">Cuisines</button>
+    <button class="cuisine-meal-button" mat-button (click)="chooseMealType()">Meal Type</button>
   </div>
   <div id="recipes"></div>
 </div>
