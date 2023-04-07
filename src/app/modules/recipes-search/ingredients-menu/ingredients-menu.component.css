@@ -112,4 +112,8 @@
   display: none;
 }
 
+.filtered-ingredients {
+  display: none !important;
+}
+
 

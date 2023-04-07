@@ -13,6 +13,7 @@ import {Ingredient} from "../filters/filters.component";
 export class IngredientsMenuComponent implements OnInit {
 
   pantry : Ingredient[] = []
+  searchToken : string = ""
 
   constructor(private recipesSearchService : RecipesSearchService) { }
 
@@ -93,6 +94,18 @@ export class IngredientsMenuComponent implements OnInit {
         return;
       }
     }
+  }
+
+  containsSearchToken(name: string) : boolean {
+    if (this.searchToken.trim() === "") return true;
+    return name.toLowerCase().includes(this.searchToken.trim().toLowerCase());
+  }
+
+  categoryContainsToken(category : string[]) : boolean {
+    if (this.searchToken.trim() === "") return true;
+    for (let ingredient of category)
+      if (ingredient.toLowerCase().includes(this.searchToken.trim().toLowerCase())) return true;
+    return false;
   }
 
 }
