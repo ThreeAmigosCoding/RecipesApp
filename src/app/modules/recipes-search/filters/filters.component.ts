@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RecipesSearchService} from "../recipes-search.service";
+import {Options} from "@angular-slider/ngx-slider";
 
 @Component({
   selector: 'app-filters',
@@ -18,17 +19,29 @@ export class FiltersComponent implements OnInit {
     } )
   }
 
-  prepSliderValue: number = 120;
+  prepSliderValueDisplay: number = 120;
+  prepSliderValue: number = 50;
+  prepSliderOptions: Options = {
+    floor: 0,
+    ceil: 120
+  };
+
   glutenIntolerance: boolean = false;
 
-  //TODO Fix range slider for calories.
-  minValue = 0;
-  maxValue = 100;
-  sliderValue = {min: 20, max: 80};
+  //slider for cals
+  calSliderMinValue: number = 20;
+  calSliderMinValueDisplay: number = 20;
+  calSliderMaxValue: number = 200;
+  calSliderMaxValueDisplay: number = 200;
+  calSliderOptions: Options = {
+    floor: 0,
+    ceil: 200
+  };
 
   remove(ingredient : Ingredient) : void {
     this.recipesSearchService.removeIngredient(ingredient);
   }
+
 
 }
 

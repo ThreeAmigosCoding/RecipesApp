@@ -33,16 +33,26 @@
   margin-bottom: 0;
 }
 
-mat-slider {
-  width: 100%;
-  margin: 0;
+::ng-deep .ngx-slider .ngx-slider-bar{
+  background: #c9c1c1 !important;
 }
 
-.filter-slider ::ng-deep .mat-slider-thumb,
-.filter-slider ::ng-deep .mat-slider-track-fill,
-.filter-slider ::ng-deep .mat-slider-thumb-label
- {
-  background-color: #303030;
+::ng-deep .ngx-slider .ngx-slider-handle {
+  background-color: #303030 !important;
+}
+
+
+::ng-deep .ngx-slider .ngx-slider-pointer{
+  background-color: #303030 !important;
+  scale: 80%;
+}
+
+::ng-deep .ngx-slider .ngx-slider-pointer:after{
+  background-color: white !important;
+}
+
+::ng-deep .ngx-slider .ngx-slider-selection{
+  background-color: #303030 !important;
 }
 
 .filter-checkbox {

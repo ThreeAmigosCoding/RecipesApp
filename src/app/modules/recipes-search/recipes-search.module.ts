@@ -10,6 +10,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSliderModule} from "@angular/material/slider";
 import {FormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
 
 
 
@@ -32,7 +33,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatButtonModule,
     MatSliderModule,
     FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxSliderModule
   ]
 })
 export class RecipesSearchModule { }
