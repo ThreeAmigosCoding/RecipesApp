@@ -11,8 +11,9 @@ import {MatSliderModule} from "@angular/material/slider";
 import {FormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {NgxSliderModule} from "@angular-slider/ngx-slider";
-
-
+import { CuisinesSelectionComponent } from './cuisines-selection/cuisines-selection.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { MealTypeSelectionComponent } from './meal-type-selection/meal-type-selection.component';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import {NgxSliderModule} from "@angular-slider/ngx-slider";
         IngredientsMenuComponent,
         FiltersComponent,
         RecipesOverviewComponent,
-        HomeComponent
+        HomeComponent,
+        CuisinesSelectionComponent,
+        MealTypeSelectionComponent
     ],
   exports: [
     HomeComponent,
@@ -34,7 +37,8 @@ import {NgxSliderModule} from "@angular-slider/ngx-slider";
     MatSliderModule,
     FormsModule,
     MatCheckboxModule,
-    NgxSliderModule
+    NgxSliderModule,
+    MatDialogModule
   ]
 })
 export class RecipesSearchModule { }

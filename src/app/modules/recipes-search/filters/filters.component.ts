@@ -23,7 +23,8 @@ export class FiltersComponent implements OnInit {
   prepSliderValue: number = 50;
   prepSliderOptions: Options = {
     floor: 0,
-    ceil: 120
+    ceil: 120,
+    step: 5
   };
 
   glutenIntolerance: boolean = false;
@@ -35,7 +36,8 @@ export class FiltersComponent implements OnInit {
   calSliderMaxValueDisplay: number = 200;
   calSliderOptions: Options = {
     floor: 0,
-    ceil: 200
+    ceil: 200,
+    step: 10
   };
 
   remove(ingredient : Ingredient) : void {

@@ -1,0 +1,17 @@
+<div id="cuisines-window">
+  <div id="selected-cuisines-count">
+    <span>{{selectedCuisinesCount}} {{caseRegulator()}} selected</span>
+    <button mat-button class="cuisine-choice-buttons" (click)="clearAll()">Clear</button>
+  </div>
+  <div id="cuisines-container">
+    <a class="d-flex flex-row align-items-center cuisine-item" *ngFor="let cuisine of cuisinesSelection">
+      <mat-checkbox [(ngModel)]="cuisine.selected" (change)="changeCuisineCount(cuisine)"></mat-checkbox>
+      <img src="assets/cuisine-images/{{cuisine.name}}.png" alt="favicon.ico">
+      <span>{{cuisine.name}}</span>
+    </a>
+  </div>
+  <div id="apply-close-container">
+    <button mat-button class="cuisine-choice-buttons" (click)="onCloseClick()">Close</button>
+    <button mat-button class="cuisine-choice-buttons" (click)="apply()">Apply</button>
+  </div>
+</div>

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {Ingredient} from "./filters/filters.component";
+import {Cuisine} from "./cuisines-selection/cuisines-selection.component";
+import {MealType} from "./meal-type-selection/meal-type-selection.component";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesSearchService {
 
+  //region Ingredients
   private ingredients : Ingredient[] = []
   private $pantry = new BehaviorSubject<Ingredient[]>([]);
   $pantryState = this.$pantry.asObservable();
@@ -24,6 +27,29 @@ export class RecipesSearchService {
       this.$pantry.next(this.ingredients);
     }
   }
+  //endregion
+
+  //region Cuisines
+
+  private $cuisines = new BehaviorSubject<Cuisine[]>([]);
+  $cuisinesState = this.$cuisines.asObservable();
+
+  setCuisines(cuisines: Cuisine[]): void{
+    this.$cuisines.next(cuisines);
+  }
+
+  //endregion
+
+  //region Meal Types
+
+  private $mealTypes = new BehaviorSubject<MealType[]>([]);
+  $mealTypesState = this.$mealTypes.asObservable();
+
+  setMealTypes(mealTypes: MealType[]): void {
+    this.$mealTypes.next(mealTypes);
+  }
+
+  //endregion
 
   constructor() { }
 }

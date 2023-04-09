@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {MatDialog} from "@angular/material/dialog";
+import {Cuisine, CuisinesSelectionComponent} from "../cuisines-selection/cuisines-selection.component";
+import {RecipesSearchService} from "../recipes-search.service";
+import {MealType, MealTypeSelectionComponent} from "../meal-type-selection/meal-type-selection.component";
 
 @Component({
   selector: 'app-recipes-overview',
@@ -7,28 +12,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesOverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cuisinesDialog: MatDialog, private recipesSearchService: RecipesSearchService,
+              public mealTypesDialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.recipesSearchService.$cuisinesState.subscribe(result => {
+      this.selectedCuisines = JSON.parse(JSON.stringify(result));
+    });
+
+    this.recipesSearchService.$mealTypesState.subscribe(result => {
+      this.selectedMealTypes = JSON.parse(JSON.stringify(result));
+    });
   }
 
   // Cuisines - https://spoonacular.com/food-api/docs#Cuisines
   // Meal Types - https://spoonacular.com/food-api/docs#Meal-Types
 
-  cuisines = ["African", "American", "British", "Cajun", "Caribbean", "Chinese", "Eastern European", "European",
-    "French", "German", "Greek", "Indian", "Irish", "Italian", "Japanese", "Jewish", "Korean",
-    "Latin American", "Mediterranean", "Mexican","Middle Eastern", "Nordic", "Southern", "Spanish", "Thai",
-    "Vietnamese"]
+  selectedCuisines: Cuisine[] = [];
+  selectedMealTypes: MealType[] = [];
 
-  mealTypes = ["main course", "bread", "marinade", "side dish", "breakfast", "fingerfood", "dessert", "soup", "snack",
-               "appetizer", "beverage", "drink", "salad", "sauce"];
   searchToken: string = "";
 
   chooseCuisine() {
-
+    this.cuisinesDialog.open(CuisinesSelectionComponent);
   }
 
   chooseMealType() {
-
+    this.mealTypesDialog.open(MealTypeSelectionComponent);
   }
 }
