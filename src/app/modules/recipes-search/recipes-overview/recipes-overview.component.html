@@ -19,5 +19,12 @@
       </a>
     </div>
   </div>
-  <div id="recipes"></div>
+  <div id="recipes">
+    <div *ngFor="let recipe of recipes" class="recipe" [ngClass]="{'not-selected': !titleContainsToken(recipe.title)}">
+      <img src="assets/recipe-images/chicken_pasta.jpg">
+      <div class="recipe-title">
+        <h2>{{recipe.title}}</h2>
+      </div>
+    </div>
+  </div>
 </div>
