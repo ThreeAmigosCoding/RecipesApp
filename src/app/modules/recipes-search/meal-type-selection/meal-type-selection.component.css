@@ -1,0 +1,49 @@
+#meal-types-window{
+  width: 100%;
+  padding: 20px;
+  background-color: #303030;
+}
+
+#meal-types-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.meal-type-item{
+  gap: 5px;
+  text-decoration: none;
+  color: #303030;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#apply-close-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+#selected-meal-types-count{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+#selected-meal-types-count span {
+  color: white;
+  font-size: 18px;
+}
+
+.meal-type-choice-buttons{
+  background-color: #FFA012;
+  height: 60%;
+  font-size: 18px;
+  width: 120px;
+  padding: 5px 20px;
+  margin-top: 7px;
+}

@@ -9,6 +9,15 @@
     </mat-form-field>
     <button class="cuisine-meal-button" mat-button (click)="chooseCuisine()">Cuisines</button>
     <button class="cuisine-meal-button" mat-button (click)="chooseMealType()">Meal Type</button>
+    <div id="cuisine-meal-type-filters">
+      <a *ngFor="let cuisine of selectedCuisines" class="filter-item" [ngClass]="{'not-selected': !cuisine.selected}">
+        <img src="assets/cuisine-images/{{cuisine.name}}.png" alt="favicon.ico">
+        <span>{{cuisine.name}}</span>
+      </a>
+      <a *ngFor="let mealType of selectedMealTypes" class="filter-item" [ngClass]="{'not-selected': !mealType.selected}">
+        <span>{{mealType.name}}</span>
+      </a>
+    </div>
   </div>
   <div id="recipes"></div>
 </div>

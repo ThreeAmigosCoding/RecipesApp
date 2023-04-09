@@ -3,15 +3,15 @@
   flex-direction: row;
   padding: 20px;
   gap: 20px;
+  align-items: center;
 }
 
 .cuisine-meal-button {
   background-color: #FFA012;
   height: 60%;
   font-size: 18px;
-  width: 120px;
+  min-width: 120px;
   padding: 5px 20px;
-  margin-top: 7px;
 }
 
 .search-field {
@@ -38,3 +38,52 @@
   margin-bottom: 10px;
 }
 
+::ng-deep .mat-dialog-container{
+  width: 40% !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+#cuisine-meal-type-filters{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+
+
+.filter-item{
+  display: flex;
+  gap: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #303030;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  align-items: center;
+  white-space: nowrap;
+  margin-bottom: 6px;
+}
+
+.filter-item img{
+  width: 25px;
+  height: 25px;
+}
+
+.not-selected{
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 5px;
+  border-radius: 4px;
+  background: #222831;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #FFA012;
+}
