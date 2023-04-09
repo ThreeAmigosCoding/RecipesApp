@@ -33,6 +33,30 @@
   margin-bottom: 0;
 }
 
+#empty-pantry p {
+  margin: 0;
+}
+
+#empty-pantry img {
+  width: 65px;
+  margin-bottom: 10px;
+}
+
+.legend {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+#green_dot {
+  background-color: #54B572;
+}
+
+#red_dot {
+  background-color: #DE5243;
+}
+
 ::ng-deep .ngx-slider .ngx-slider-bar{
   background: #c9c1c1 !important;
 }

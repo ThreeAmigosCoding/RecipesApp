@@ -34,7 +34,7 @@ export class RecipesOverviewComponent implements OnInit {
   recipes: Recipe[] = [
     {
       "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
-      "preparationTime": 30,
+      "preparationTime": 120,
       "mealType": "Dinner",
       "cuisine": "Italian",
       "calories": 700
