@@ -23,6 +23,9 @@ export class RecipesOverviewComponent implements OnInit {
     this.recipesSearchService.$mealTypesState.subscribe(result => {
       this.selectedMealTypes = JSON.parse(JSON.stringify(result));
     });
+    this.recipesSearchService.$recipesState.subscribe(result => {
+      this.recipes = result;
+    });
   }
 
   // Cuisines - https://spoonacular.com/food-api/docs#Cuisines
@@ -31,64 +34,7 @@ export class RecipesOverviewComponent implements OnInit {
   selectedCuisines: Cuisine[] = [];
   selectedMealTypes: MealType[] = [];
 
-  recipes: Recipe[] = [
-    {
-      "title": "What to make for dinner tonight?? Bruschetta Style Pork & Pasta What to make for dinner tonight?? Bruschetta Style Pork & Pasta",
-      "preparationTime": 120,
-      "mealType": "Dinner",
-      "cuisine": "Italian",
-      "calories": 700
-    },
-    {
-      "title": "Veggie Stir Fry",
-      "preparationTime": 20,
-      "mealType": "Lunch",
-      "cuisine": "Asian",
-      "calories": 500
-    },
-    {
-      "title": "Beef Chili",
-      "preparationTime": 60,
-      "mealType": "Dinner",
-      "cuisine": "American",
-      "calories": 800
-    },
-    {
-      "title": "Pesto Pasta",
-      "preparationTime": 25,
-      "mealType": "Lunch",
-      "cuisine": "Italian",
-      "calories": 600
-    },
-    {
-      "title": "Fish Tacos",
-      "preparationTime": 35,
-      "mealType": "Dinner",
-      "cuisine": "Mexican",
-      "calories": 550
-    },
-    {
-      "title": "Beef Chili",
-      "preparationTime": 60,
-      "mealType": "Dinner",
-      "cuisine": "American",
-      "calories": 800
-    },
-    {
-      "title": "Pesto Pasta",
-      "preparationTime": 25,
-      "mealType": "Lunch",
-      "cuisine": "Italian",
-      "calories": 600
-    },
-    {
-      "title": "Fish Tacos",
-      "preparationTime": 35,
-      "mealType": "Dinner",
-      "cuisine": "Mexican",
-      "calories": 550
-    }
-  ]
+  recipes: Recipe[] = []
 
   searchToken: string = "";
 
@@ -107,9 +53,37 @@ export class RecipesOverviewComponent implements OnInit {
 }
 
 export interface Recipe {
+  id: number,
+  glutenFree: boolean,
   title: string,
-  preparationTime: number,
-  mealType: string,
-  cuisine: string,
-  calories: number
+  readyInMinutes: number,
+  dishTypes: string[],
+  cuisines: string[],
+  calories: number,
+  image: string,
+  servings: number,
+  summary: string,
+  winePairing: WinePairing,
+  steps: Instruction,
+  extendedIngredients: ExtendedIngredient[]
+}
+
+export interface WinePairing {
+  pairedWines: string[],
+  pairingText: string
+}
+
+export interface Instruction {
+  name: string,
+  steps: Step[]
+}
+
+export interface Step {
+  number: number,
+  step: string
+}
+
+export interface ExtendedIngredient {
+  name: string,
+  original: string
 }

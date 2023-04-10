@@ -21,15 +21,17 @@
     </div>
   </div>
   <div id="filters-container">
-    <p>Max preparation time in minutes: <span>{{ prepSliderValueDisplay }}</span></p>
+    <p>Max preparation time in minutes: <span>{{ prepSliderValue }}</span></p>
     <ngx-slider [(value)]="prepSliderValue" [options]="prepSliderOptions">
     </ngx-slider>
-                                                                                                                            <!--    TODO Fix range slider for calories.-->
-    <p>Calories: <span>{{ calSliderMinValueDisplay }}</span> - <span>{{ calSliderMaxValueDisplay }}</span></p>
+
+    <p>Calories: <span>{{ calSliderMinValue }}</span> - <span>{{ calSliderMaxValue }}</span></p>
     <ngx-slider  [(value)]="calSliderMinValue" [(highValue)]="calSliderMaxValue" [options]="calSliderOptions"></ngx-slider>
 
     <mat-checkbox class="filter-checkbox" [(ngModel)]="glutenIntolerance" [ngModelOptions]="{standalone: true}">
       Gluten Intolerance
     </mat-checkbox>
+
+    <button id="search-button" mat-button (click)="getRecipes()">Search</button>
   </div>
 </div>

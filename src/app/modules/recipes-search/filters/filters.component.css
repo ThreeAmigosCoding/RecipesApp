@@ -1,6 +1,6 @@
 #filters {
   width: 100%;
-  height: 33vh;
+  /*height: 36vh;*/
   margin-top: 20px;
   padding: 0 40px 0 20px;
   border-bottom: 10px solid #222831;
@@ -24,6 +24,8 @@
 #filters-container {
   width: 40%;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 #filters-container p {
@@ -145,6 +147,14 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 
 .included {
   background-color: #54B572;
+}
+
+#search-button {
+  background-color: #FFA012;
+  font-size: 18px;
+  width: 120px;
+  padding: 5px 20px;
+  margin: 20px 0 10px;
 }
 
 
