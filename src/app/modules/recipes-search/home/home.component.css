@@ -19,14 +19,14 @@
   background: #FFA012;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   #home {
     flex-direction: column;
   }
 
   .filters-and-recipes {
     width: 100vw;
-    height: 60vh;
+    height: 100vh;
     overflow-y: auto;
   }
 }

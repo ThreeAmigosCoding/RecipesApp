@@ -191,7 +191,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   #filters {
     flex-direction: column;
     padding: 0 20px;
