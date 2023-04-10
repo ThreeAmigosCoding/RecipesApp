@@ -165,6 +165,63 @@
   background: #222831;
 }
 
+@media only screen and (min-width: 992px) {
 
+  .cuisine-meal-button {
+    font-size: 16px;
+    width: 80px;
+    padding: 0 15px;
+  }
+
+  .search-field {
+    font-size: 16px;
+  }
+
+  .filter-item{
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
+  .filter-item img{
+    width: 20px;
+    height: 20px;
+  }
+
+}
+
+@media only screen and (max-width: 900px) {
+  ::ng-deep .mat-dialog-container{
+    width: 150% !important;
+  }
+
+  #recipes-overview{
+    height: 100vh;
+    padding-bottom: 0;
+  }
+
+  #recipes{
+    overflow: visible;
+  }
+
+  #cuisine-meal-type{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #cuisine-meal-type-filters{
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+  .search-field{
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .filter-buttons-container{
+    width: 80%;
+    justify-content: center;
+  }
+
+}
 
 

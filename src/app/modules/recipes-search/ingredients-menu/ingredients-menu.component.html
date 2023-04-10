@@ -1,4 +1,6 @@
-<div id="ingredient-menu">
+<button class="menu-button" mat-button (click)="toggleMenu()">{{getMenuText()}}</button>
+
+<div id="ingredient-menu" [class.hide-menu]="!showMenu" [class.show-menu]="showMenu">
   <div class="sticky-container">
     <h1>Cooky</h1>
     <mat-form-field class="search-field" hideRequiredMarker>

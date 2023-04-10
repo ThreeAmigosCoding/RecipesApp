@@ -14,6 +14,7 @@ export class IngredientsMenuComponent implements OnInit {
 
   pantry : Ingredient[] = []
   searchToken : string = ""
+  showMenu : boolean = false
 
   constructor(private recipesSearchService : RecipesSearchService) { }
 
@@ -108,4 +109,12 @@ export class IngredientsMenuComponent implements OnInit {
     return false;
   }
 
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+  }
+
+  getMenuText(): string{
+    if (this.showMenu) return "Home";
+    return "Ingredients menu";
+  }
 }

@@ -137,4 +137,36 @@
 }
 
 
+@media only screen and (max-width: 600px){
+  #recipe-card-container{
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #recipe-info-container{
+    width: 100%;
+
+  }
+
+  #steps-container{
+    width: 100%;
+  }
+
+  #steps-container p{
+    font-size: 16px;
+  }
+
+  #info li{
+    font-size: 16px;
+  }
+
+  #info p{
+    font-size: 16px;
+  }
+
+  #instructions-container h3{
+    font-size: 20px;
+  }
+}
 
