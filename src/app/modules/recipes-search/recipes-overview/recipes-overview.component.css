@@ -39,9 +39,10 @@
 }
 
 ::ng-deep .mat-dialog-container{
-  width: 40% !important;
+  width: 70vw !important;
   padding: 0 !important;
   margin: 0 auto !important;
+  border-radius: 10px !important;
 }
 
 #cuisine-meal-type-filters{
@@ -87,3 +88,83 @@
   border-radius: 5px;
   background: #FFA012;
 }
+
+.recipe{
+  background-color: #303030;
+  width: 400px;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe:hover{
+  cursor: grab;
+  scale: 103%;
+  transition: 0.5s;
+}
+
+.recipe img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.prep-time {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100px;
+  height: 30px;
+  background-color: #FFA012;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 5px;
+}
+
+.prep-time p {
+  margin: 0;
+}
+
+.recipe-title{
+  height:30%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.recipe h2{
+  color: white;
+  font-size: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+#recipes{
+  padding: 10px 20px 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 30px;
+  height: 52vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#recipes::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 4px;
+  background: #222831;
+}
+
+
+
+

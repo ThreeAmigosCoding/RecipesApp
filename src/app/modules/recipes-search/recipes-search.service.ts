@@ -3,6 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import {Ingredient} from "./filters/filters.component";
 import {Cuisine} from "./cuisines-selection/cuisines-selection.component";
 import {MealType} from "./meal-type-selection/meal-type-selection.component";
+import {Recipe} from "./recipes-overview/recipes-overview.component";
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,17 @@ export class RecipesSearchService {
   }
 
   //endregion
+
+  // region Recipes
+
+  private $recipes = new BehaviorSubject<Recipe[]>([])
+  $recipesState = this.$recipes.asObservable();
+
+  setRecipesState(recipes: Recipe[]): void {
+    this.$recipes.next(recipes);
+  }
+
+  // endregion
 
   constructor() { }
 }

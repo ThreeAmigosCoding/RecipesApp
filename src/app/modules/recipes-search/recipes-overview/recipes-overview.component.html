@@ -19,5 +19,17 @@
       </a>
     </div>
   </div>
-  <div id="recipes"></div>
+  <div id="recipes">
+    <div *ngFor="let recipe of recipes" class="recipe" [ngClass]="{'not-selected': !containsCriteria(recipe)}"
+          (click)="openRecipeCard(recipe)">
+      <img alt="assets/recipe-images/chicken_pasta.jpg" [src]="recipe.image">
+      <div class="prep-time">
+        <mat-icon>access_time</mat-icon>
+        <p>{{recipe.readyInMinutes}} min</p>
+      </div>
+      <div class="recipe-title">
+        <h2 title="{{recipe.title}}">{{recipe.title}}</h2>
+      </div>
+    </div>
+  </div>
 </div>

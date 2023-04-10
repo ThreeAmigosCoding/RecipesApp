@@ -4,6 +4,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {Cuisine, CuisinesSelectionComponent} from "../cuisines-selection/cuisines-selection.component";
 import {RecipesSearchService} from "../recipes-search.service";
 import {MealType, MealTypeSelectionComponent} from "../meal-type-selection/meal-type-selection.component";
+import {RecipeCardComponent} from "../recipe-card/recipe-card.component";
+import {RecipesApiService} from "../recipes-api.service";
 
 @Component({
   selector: 'app-recipes-overview',
@@ -13,7 +15,8 @@ import {MealType, MealTypeSelectionComponent} from "../meal-type-selection/meal-
 export class RecipesOverviewComponent implements OnInit {
 
   constructor(public cuisinesDialog: MatDialog, private recipesSearchService: RecipesSearchService,
-              public mealTypesDialog: MatDialog) { }
+              public mealTypesDialog: MatDialog, public recipeCardDialog: MatDialog,
+              private recipesApiService: RecipesApiService) { }
 
   ngOnInit(): void {
     this.recipesSearchService.$cuisinesState.subscribe(result => {
@@ -23,6 +26,9 @@ export class RecipesOverviewComponent implements OnInit {
     this.recipesSearchService.$mealTypesState.subscribe(result => {
       this.selectedMealTypes = JSON.parse(JSON.stringify(result));
     });
+    this.recipesSearchService.$recipesState.subscribe(result => {
+      this.recipes = result;
+    });
   }
 
   // Cuisines - https://spoonacular.com/food-api/docs#Cuisines
@@ -30,6 +36,8 @@ export class RecipesOverviewComponent implements OnInit {
 
   selectedCuisines: Cuisine[] = [];
   selectedMealTypes: MealType[] = [];
+
+  recipes: Recipe[] = []
 
   searchToken: string = "";
 
@@ -40,4 +48,67 @@ export class RecipesOverviewComponent implements OnInit {
   chooseMealType() {
     this.mealTypesDialog.open(MealTypeSelectionComponent);
   }
+
+  containsCriteria(recipe: Recipe): boolean{
+    if (this.searchToken.trim() !== "" && !recipe.title.toLowerCase().includes(this.searchToken.trim().toLowerCase()))
+      return false;
+
+    let cuisines: string[] = this.selectedCuisines
+      .filter(cuisine => cuisine.selected)
+      .map(cuisine => cuisine.name);
+    if (cuisines.length !== 0 && !cuisines.some(cuisine => recipe.cuisines.includes(cuisine)))
+      return false;
+
+    let mealTypes: string[] = this.selectedMealTypes
+      .filter(mealType => mealType.selected)
+      .map(mealType => mealType.name);
+    if (mealTypes.length !== 0 && !mealTypes.some(mealType => recipe.dishTypes.includes(mealType)))
+      return false;
+
+    return true;
+  }
+
+  openRecipeCard(recipe: Recipe) {
+    this.recipesApiService.getRecipeDetails(recipe.id).subscribe(result => {
+      result.analyzedInstructions = recipe.analyzedInstructions;
+      result.summary = result.summary.replace(/<a\s+.*?>/gi, '').replace(/<\/a>/gi, '');
+      this.recipeCardDialog.open(RecipeCardComponent, {data:result});
+    });
+  }
+}
+
+export interface Recipe {
+  id: number,
+  glutenFree: boolean,
+  title: string,
+  readyInMinutes: number,
+  dishTypes: string[],
+  cuisines: string[],
+  calories: number,
+  image: string,
+  servings: number,
+  summary: string,
+  winePairing: WinePairing,
+  analyzedInstructions: Instruction[],
+  extendedIngredients: ExtendedIngredient[]
+}
+
+export interface WinePairing {
+  pairedWines: string[],
+  pairingText: string
+}
+
+export interface Instruction {
+  name: string,
+  steps: Step[]
+}
+
+export interface Step {
+  number: number,
+  step: string
+}
+
+export interface ExtendedIngredient {
+  name: string,
+  original: string
 }
