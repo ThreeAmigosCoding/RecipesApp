@@ -1,0 +1,34 @@
+<button class="menu-button" mat-button (click)="toggleMenu()">{{getMenuText()}}</button>
+
+<div id="ingredient-menu" [class.hide-menu]="!showMenu" [class.show-menu]="showMenu">
+  <div class="sticky-container">
+    <h1>Cooky</h1>
+    <mat-form-field class="search-field" hideRequiredMarker>
+      <mat-label>Search Ingredients</mat-label>
+      <input matInput type="text" [(ngModel)]="searchToken"/>
+      <button id="search-button" matSuffix mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div id="categories">
+    <div class="category" *ngFor="let category of categories; let i = index;">
+      <h2 *ngIf="categoryContainsToken(category)" >{{categoriesNames[i]}}</h2>
+      <div class="ingredients-container">
+        <a class="ingredients d-flex flex-row align-items-center" *ngFor="let ingredient of category"
+           [ngClass]="{'selected-ingredient': inPantry(ingredient),
+            'filtered-ingredients': !containsSearchToken(ingredient)}">
+          <button class="exclude add-exclude" title="Exclude" (click)="add(ingredient, true)"
+                  [ngClass]="{'selected-ingredient-button': inPantry(ingredient)}">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <p (click)="remove(ingredient)">{{ingredient}}</p>
+          <button class="add add-exclude" title="Add" (click)="add(ingredient, false)"
+                  [ngClass]="{'selected-ingredient-button': inPantry(ingredient)}">
+            <mat-icon>add</mat-icon>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

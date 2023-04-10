@@ -1,0 +1,172 @@
+#recipe-card-container{
+  display: flex;
+  flex-direction: row;
+  background-color: #303030;
+  color: white;
+  position: relative;
+  max-height: 700px;
+  border-radius: 10px;
+}
+
+#recipe-info-container{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 30px;
+}
+
+#meal-image{
+  position: relative;
+}
+
+.prep-time{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  min-width: 120px;
+  height: 36px;
+  background-color: #FFA012;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 5px;
+  color: #303030;
+  font-weight: 550;
+  font-size: 20px;
+}
+
+.prep-time p {
+  margin: 0;
+}
+
+#recipe-info-container img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#steps-container{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 30px;
+}
+
+#steps-container p{
+  font-size: 20px;
+}
+
+#steps-container h1{
+  margin-bottom: 20px;
+}
+
+#close-icon{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background-color: #FFA012;
+  color: #303030;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#close-icon:hover{
+  cursor: pointer;
+}
+
+#info{
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 10px;
+  scroll-padding: 50px;
+
+}
+
+#info h1{
+  margin-top: 20px;
+}
+
+#info li{
+  font-size: 20px;
+}
+
+#info p{
+  font-size: 22px;
+}
+
+#instructions-container{
+  overflow-x: hidden;
+  overflow-y:auto;
+  padding-right: 10px;
+}
+
+#instructions-container p{
+  padding-left: 20px;
+}
+
+#instructions-container h3{
+  font-size: 24px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 4px;
+  background: #222831;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #FFA012;
+  float: top;
+}
+
+#wine-container p, #summary-container p {
+  margin-left: 20px;
+}
+
+#summary-container *{
+  color: white;
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px){
+  #recipe-card-container{
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #recipe-info-container{
+    width: 100%;
+
+  }
+
+  #steps-container{
+    width: 100%;
+  }
+
+  #steps-container p{
+    font-size: 16px;
+  }
+
+  #info li{
+    font-size: 16px;
+  }
+
+  #info p{
+    font-size: 16px;
+  }
+
+  #instructions-container h3{
+    font-size: 20px;
+  }
+}
+

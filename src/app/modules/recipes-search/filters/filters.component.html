@@ -1,0 +1,37 @@
+<div id="filters">
+  <div id="pantry-and-cuisines">
+    <h1>My Pantry</h1>
+    <div class="ingredients-container">
+      <div id="empty-pantry" class="d-flex flex-column" *ngIf="pantry.length == 0">
+        <img src="assets/basket.png">
+        <p>Your pantry is currently empty. Add some ingredients.</p>
+        <div class="d-flex flex-row align-items-center">
+          <div class="legend" id="green_dot"></div>
+          <p> - Included ingredients</p>
+        </div>
+        <div class="d-flex flex-row align-items-center">
+          <div class="legend" id="red_dot"></div>
+          <p> - Excluded ingredients</p>
+        </div>
+      </div>
+      <a class="ingredients d-flex flex-row align-items-center" *ngFor="let ingredient of pantry"
+      [ngClass]="{'excluded': ingredient.excluded, 'included': !ingredient.excluded}" (click)="remove(ingredient)">
+        <p>{{ingredient.name}}</p>
+      </a>
+    </div>
+  </div>
+  <div id="filters-container">
+    <p>Max preparation time in minutes: <span>{{ prepSliderValue }}</span></p>
+    <ngx-slider [(value)]="prepSliderValue" [options]="prepSliderOptions">
+    </ngx-slider>
+
+    <p>Calories: <span>{{ calSliderMinValue }}</span> - <span>{{ calSliderMaxValue }}</span></p>
+    <ngx-slider  [(value)]="calSliderMinValue" [(highValue)]="calSliderMaxValue" [options]="calSliderOptions"></ngx-slider>
+
+    <mat-checkbox class="filter-checkbox" [(ngModel)]="glutenIntolerance" [ngModelOptions]="{standalone: true}">
+      Gluten Intolerance
+    </mat-checkbox>
+
+    <button id="search-button" mat-button (click)="getRecipes()">Search</button>
+  </div>
+</div>

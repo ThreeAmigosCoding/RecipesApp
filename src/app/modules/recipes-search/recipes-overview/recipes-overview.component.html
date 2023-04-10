@@ -1,0 +1,37 @@
+<div id="recipes-overview">
+  <div id="cuisine-meal-type">
+    <mat-form-field class="search-field" hideRequiredMarker>
+      <mat-label>Search Meals</mat-label>
+      <input matInput type="text" [(ngModel)]="searchToken"/>
+      <button id="search-button" matSuffix mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="d-flex flex-row gap-5 filter-buttons-container">
+      <button class="cuisine-meal-button" mat-button (click)="chooseCuisine()">Cuisines</button>
+      <button class="cuisine-meal-button" mat-button (click)="chooseMealType()">Meal Type</button>
+    </div>
+    <div id="cuisine-meal-type-filters">
+      <a *ngFor="let cuisine of selectedCuisines" class="filter-item" [ngClass]="{'not-selected': !cuisine.selected}">
+        <img src="assets/cuisine-images/{{cuisine.name}}.png" alt="favicon.ico">
+        <span>{{cuisine.name}}</span>
+      </a>
+      <a *ngFor="let mealType of selectedMealTypes" class="filter-item" [ngClass]="{'not-selected': !mealType.selected}">
+        <span>{{mealType.name}}</span>
+      </a>
+    </div>
+  </div>
+  <div id="recipes">
+    <div *ngFor="let recipe of recipes" class="recipe" [ngClass]="{'not-selected': !containsCriteria(recipe)}"
+          (click)="openRecipeCard(recipe)">
+      <img alt="assets/recipe-images/chicken_pasta.jpg" [src]="recipe.image">
+      <div class="prep-time">
+        <mat-icon>access_time</mat-icon>
+        <p>{{recipe.readyInMinutes}} min</p>
+      </div>
+      <div class="recipe-title">
+        <h2 title="{{recipe.title}}">{{recipe.title}}</h2>
+      </div>
+    </div>
+  </div>
+</div>

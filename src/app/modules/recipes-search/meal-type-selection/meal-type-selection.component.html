@@ -1,0 +1,16 @@
+<div id="meal-types-window">
+  <div id="selected-meal-types-count">
+    <span>{{selectedMealTypesCount}} {{caseRegulator()}} selected</span>
+    <button mat-button class="meal-type-choice-buttons" (click)="clearAll()">Clear</button>
+  </div>
+  <div id="meal-types-container">
+    <a class="d-flex flex-row align-items-center meal-type-item" *ngFor="let mealType of mealTypesSelection">
+      <mat-checkbox [(ngModel)]="mealType.selected" (change)="changeMealTypeCount(mealType)"></mat-checkbox>
+      <span>{{mealType.name}}</span>
+    </a>
+  </div>
+  <div id="apply-close-container">
+    <button mat-button class="meal-type-choice-buttons" (click)="onCloseClick()">Close</button>
+    <button mat-button class="meal-type-choice-buttons" (click)="apply()">Apply</button>
+  </div>
+</div>

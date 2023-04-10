@@ -1,0 +1,72 @@
+#cuisines-window{
+  width: 100%;
+  padding: 20px;
+  background-color: #303030;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 90vh;
+}
+
+#cuisines-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+#cuisines-container img{
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid #303030;
+}
+
+.cuisine-item{
+  gap: 5px;
+  text-decoration: none;
+  color: #303030;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.6);
+}
+
+#apply-close-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+#selected-cuisines-count{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+#selected-cuisines-count span{
+  color: white;
+  font-size: 18px;
+}
+
+.cuisine-choice-buttons{
+  background-color: #FFA012;
+  height: 60%;
+  font-size: 18px;
+  width: 120px;
+  padding: 5px 20px;
+  margin-top: 7px;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.6);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  border-radius: 4px;
+  background: #222831;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #FFA012;
+}

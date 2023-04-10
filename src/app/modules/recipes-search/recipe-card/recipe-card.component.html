@@ -1,0 +1,38 @@
+<div id="recipe-card-container">
+  <div id="recipe-info-container">
+
+    <div id="meal-image">
+      <div class="prep-time">
+        <mat-icon>access_time</mat-icon>
+        <p>{{recipe.readyInMinutes}} min</p>
+      </div>
+      <img [src]="recipe.image">
+    </div>
+    <div id="info" #scrollTop>
+      <h1 id="recipe-title">{{recipe.title}}</h1>
+      <ul>
+        <li *ngFor="let ingredient of recipe.extendedIngredients">
+          {{ingredient.original}}
+        </li>
+      </ul>
+      <div id="summary-container">
+        <h3>Meal summary</h3>
+        <p [innerHtml]="recipe.summary" ></p>
+      </div>
+      <div id="wine-container" *ngIf="recipe.winePairing.pairedWines.length !== 0">
+        <h3>Recommended wines</h3>
+        <p>{{recipe.winePairing.pairingText}}</p>
+      </div>
+    </div>
+  </div>
+  <div id="steps-container">
+    <h1>Instructions</h1>
+    <div id="instructions-container" *ngFor="let instruction of recipe.analyzedInstructions">
+      <h3 *ngIf="instruction.name !== '' ">- {{instruction.name}}</h3>
+      <p *ngFor="let step of instruction.steps">{{step.number}}. {{step.step}}</p>
+    </div>
+
+  </div>
+
+  <mat-icon id="close-icon" (click)="onCloseClick()">close</mat-icon>
+</div>
