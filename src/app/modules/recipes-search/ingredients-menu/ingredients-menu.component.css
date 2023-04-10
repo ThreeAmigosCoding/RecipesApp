@@ -116,4 +116,24 @@
   display: none !important;
 }
 
+@media only screen and (min-width: 992px) {
+
+  .ingredients-container a {
+    font-size: 16px;
+  }
+
+  .add-exclude mat-icon {
+    font-size: 14px;
+    padding-top: 6px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  #ingredient-menu {
+    width: 100vw;
+    height: 40vh;
+  }
+}
+
 
