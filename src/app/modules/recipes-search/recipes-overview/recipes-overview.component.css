@@ -12,6 +12,7 @@
   font-size: 18px;
   min-width: 120px;
   padding: 5px 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .search-field {
@@ -96,11 +97,12 @@
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .recipe:hover{
   cursor: grab;
-  scale: 103%;
+  scale: 102%;
   transition: 0.5s;
 }
 

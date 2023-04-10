@@ -130,6 +130,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   padding: 5px 10px;
   border-radius: 10px;
   font-size: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .ingredients-container a p {
@@ -155,6 +156,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   width: 120px;
   padding: 5px 20px;
   margin: 20px 0 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 @media only screen and (min-width: 992px) {

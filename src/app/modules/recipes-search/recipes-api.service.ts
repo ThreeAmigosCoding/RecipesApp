@@ -28,14 +28,13 @@ export class RecipesApiService {
       params = params.set("intolerances", searchFilter.intolerances);
     params = params.set("addRecipeInformation", true);
     params = params.set("apiKey", APIKey)
-    params = params.set("number", 10)
+    params = params.set("number", 100)
 
     return params;
   }
 
   public getRecipes(searchFilter : SearchFilter) : Observable<RecipesResults> {
     let params = this.prepareFilters(searchFilter);
-    console.log(params)
     return this.http.get<RecipesResults>("https://api.spoonacular.com/recipes/complexSearch", {params});
   }
 

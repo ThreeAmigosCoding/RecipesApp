@@ -19,6 +19,7 @@
   padding: 5px 10px;
   border-radius: 10px;
   font-size: 18px;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.6);
 }
 
 #apply-close-container{
@@ -46,4 +47,5 @@
   width: 120px;
   padding: 5px 20px;
   margin-top: 7px;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.6);
 }

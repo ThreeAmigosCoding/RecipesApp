@@ -19,6 +19,8 @@
   color: white;
   font-size: 36px;
   text-align: center;
+  text-shadow: 6px 6px 4px rgba(0, 0, 0, 0.8);
+
 }
 
 #ingredient-menu h2 {
@@ -70,6 +72,7 @@
   padding: 5px;
   border-radius: 10px;
   font-size: 20px;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.6);
 }
 
 .ingredients-container a:hover {
