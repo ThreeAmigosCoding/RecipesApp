@@ -46,9 +46,23 @@ export class RecipesOverviewComponent implements OnInit {
     this.mealTypesDialog.open(MealTypeSelectionComponent);
   }
 
-  titleContainsToken(title: string): boolean{
-    if (this.searchToken.trim() === "") return true;
-    return title.toLowerCase().includes(this.searchToken.trim().toLowerCase());
+  containsCriteria(recipe: Recipe): boolean{
+    if (this.searchToken.trim() !== "" && !recipe.title.toLowerCase().includes(this.searchToken.trim().toLowerCase()))
+      return false;
+
+    let cuisines: string[] = this.selectedCuisines
+      .filter(cuisine => cuisine.selected)
+      .map(cuisine => cuisine.name);
+    if (cuisines.length !== 0 && !cuisines.some(cuisine => recipe.cuisines.includes(cuisine)))
+      return false;
+
+    let mealTypes: string[] = this.selectedMealTypes
+      .filter(mealType => mealType.selected)
+      .map(mealType => mealType.name);
+    if (mealTypes.length !== 0 && !mealTypes.some(mealType => recipe.dishTypes.includes(mealType)))
+      return false;
+
+    return true;
   }
 }
 

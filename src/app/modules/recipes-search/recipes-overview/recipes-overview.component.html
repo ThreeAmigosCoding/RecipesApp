@@ -20,7 +20,7 @@
     </div>
   </div>
   <div id="recipes">
-    <div *ngFor="let recipe of recipes" class="recipe" [ngClass]="{'not-selected': !titleContainsToken(recipe.title)}">
+    <div *ngFor="let recipe of recipes" class="recipe" [ngClass]="{'not-selected': !containsCriteria(recipe)}">
       <img alt="assets/recipe-images/chicken_pasta.jpg" [src]="recipe.image">
       <div class="prep-time">
         <mat-icon>access_time</mat-icon>
