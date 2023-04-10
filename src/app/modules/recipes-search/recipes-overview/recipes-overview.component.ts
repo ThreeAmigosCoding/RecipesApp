@@ -4,6 +4,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {Cuisine, CuisinesSelectionComponent} from "../cuisines-selection/cuisines-selection.component";
 import {RecipesSearchService} from "../recipes-search.service";
 import {MealType, MealTypeSelectionComponent} from "../meal-type-selection/meal-type-selection.component";
+import {RecipeCardComponent} from "../recipe-card/recipe-card.component";
+import {RecipesApiService} from "../recipes-api.service";
 
 @Component({
   selector: 'app-recipes-overview',
@@ -13,7 +15,8 @@ import {MealType, MealTypeSelectionComponent} from "../meal-type-selection/meal-
 export class RecipesOverviewComponent implements OnInit {
 
   constructor(public cuisinesDialog: MatDialog, private recipesSearchService: RecipesSearchService,
-              public mealTypesDialog: MatDialog) { }
+              public mealTypesDialog: MatDialog, public recipeCardDialog: MatDialog,
+              private recipesApiService: RecipesApiService) { }
 
   ngOnInit(): void {
     this.recipesSearchService.$cuisinesState.subscribe(result => {
@@ -64,6 +67,14 @@ export class RecipesOverviewComponent implements OnInit {
 
     return true;
   }
+
+  openRecipeCard(recipe: Recipe) {
+    this.recipesApiService.getRecipeDetails(recipe.id).subscribe(result => {
+      result.analyzedInstructions = recipe.analyzedInstructions;
+      result.summary = result.summary.replace(/<a\s+.*?>/gi, '').replace(/<\/a>/gi, '');
+      this.recipeCardDialog.open(RecipeCardComponent, {data:result});
+    });
+  }
 }
 
 export interface Recipe {
@@ -78,7 +89,7 @@ export interface Recipe {
   servings: number,
   summary: string,
   winePairing: WinePairing,
-  steps: Instruction,
+  analyzedInstructions: Instruction[],
   extendedIngredients: ExtendedIngredient[]
 }
 

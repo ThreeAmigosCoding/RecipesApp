@@ -15,6 +15,7 @@ import { CuisinesSelectionComponent } from './cuisines-selection/cuisines-select
 import {MatDialogModule} from "@angular/material/dialog";
 import { MealTypeSelectionComponent } from './meal-type-selection/meal-type-selection.component';
 import {HttpClientModule} from "@angular/common/http";
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
         RecipesOverviewComponent,
         HomeComponent,
         CuisinesSelectionComponent,
-        MealTypeSelectionComponent
+        MealTypeSelectionComponent,
+        RecipeCardComponent
     ],
   exports: [
     HomeComponent,

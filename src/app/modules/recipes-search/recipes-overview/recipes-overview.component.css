@@ -39,9 +39,10 @@
 }
 
 ::ng-deep .mat-dialog-container{
-  width: 40% !important;
+  width: 70vw !important;
   padding: 0 !important;
   margin: 0 auto !important;
+  border-radius: 10px !important;
 }
 
 #cuisine-meal-type-filters{

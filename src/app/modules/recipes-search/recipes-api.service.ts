@@ -39,6 +39,12 @@ export class RecipesApiService {
     return this.http.get<RecipesResults>("https://api.spoonacular.com/recipes/complexSearch", {params});
   }
 
+  public getRecipeDetails(recipeId: number): Observable<Recipe>{
+    let params : HttpParams = new HttpParams();
+    params = params.set("apiKey", APIKey);
+    return this.http.get<Recipe>("https://api.spoonacular.com/recipes/"+ recipeId +"/information", {params});
+  }
+
 }
 
 export interface SearchFilter {
