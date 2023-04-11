@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
 
+# Authors
+
+Miloš Čuturić SV11/2020  
+Luka Đorđević SV14/2020  
+Marko Janošević SV46/2020
+
+# How to use
+
+Create an account on [spoonacular API](https://spoonacular.com/food-api). Find your `API key` and paste it inside configuration file.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
