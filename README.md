@@ -1,37 +1,13 @@
-# RecipesApp
+# About
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
-
-# Authors
-
-Miloš Čuturić SV11/2020  
-Luka Đorđević SV14/2020  
-Marko Janošević SV46/2020
+The "Cooky" web app is a recipe discovery tool that utilizes the spoonacular API to provide users with a wide range of recipes based on their chosen ingredients. With Cooky, you can easily filter recipes by cuisine, meal type, calorie count, preparation time, and more. The app offers a user-friendly interface, detailed recipe descriptions, step-by-step instructions, and ingredient lists.
 
 # How to use
 
 Create an account on [spoonacular API](https://spoonacular.com/food-api). Find your `API key` and paste it inside configuration file.
 
-## Development server
+# Authors
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [Miloš Čuturić](https://github.com/cuturic01) SV11/2020  
+- [Luka Đorđević](https://github.com/lukaDjordjevic01) SV14/2020  
+- [Marko Janošević](https://github.com/janosevicsm) SV46/2020
